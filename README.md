@@ -1,4 +1,4 @@
-# oflend
+# ofblend
 
 Here you can find an reference implementation of the 2017 ACM Transactions on Graphics paper Interpolations of Smoke and Liquid Simulations (or short FlOF). 
 Authors: Nils Thuerey 
@@ -6,11 +6,11 @@ Authors: Nils Thuerey
 This source code is based on mantaflow, so it contains some third party components; please check the respective source distribution webpages for copyright details.
 
 
-* Building the code:
+## Building the code:
 You can follow the mantaflow installation instructions at http://mantaflow.com/install.html
 
 
-* Generate sample data:
+## Generate sample data:
 Run the two commands below to simulate two different liquid drop setups. The first two images on the right illustrate the initial positions. By default a relatively small resolution of 40 cells is used, in order to keep the runtimes low. The following commands assume that you built mantaflow in a separate directory next to source directory "mantaflowgit", which also contains the scene files. 
 
 The two commands will generate a lower resolution 4D SDF ("out_r040_x000.uni" and "out_r040_x001.uni" in this case), and a series of full resolution 3D SDFs ("outxl...").
@@ -19,7 +19,7 @@ The two commands will generate a lower resolution 4D SDF ("out_r040_x000.uni" an
 ./manta ../mantaflowgit/scenes/dataGen2Drop.py px 1 save4d 1 savehi 1 
 
 
-Calculate a first FlOF deformation:
+## Calculate a first FlOF deformation:
 The FlOF.py script includes all that is necessary to compute a space-time deformation with optical flow. It also has hard coded settings to load the data generated in the previous step. The two data points (0 and 1) will be used as end-points for the calculations in the following.
 
 ./manta ../mantaflowgit/scenes/flof.py dataid0 0 dataid1 1 mode 1 
@@ -34,14 +34,14 @@ The previous steps apply the deformation using the lower grid resolution (32 in 
 ./manta ../mantaflowgit/scenes/flof.py dataid0 0 dataid1 1 mode 3 showgui 1 alpha 50 
 
 
-The second deformation:
+## The second deformation:
 
 To run the full pipeline as described in the paper, you also need a deformation in the other direction. Run the following commands to generate and check it: 
 ./manta ../mantaflowgit/scenes/flof.py dataid0 1 dataid1 0 mode 1 
 ./manta ../mantaflowgit/scenes/flof.py dataid0 1 dataid1 0 mode 2 showgui 1 
 
 
-Final output:
+## Final output:
 
 Now we have all components ready to generate a real output: the high-res input data, and the deformations in both directions. The following command will apply them with 50% strength, and save a sequence of png images. You can see a preview on the right (the lower two images). 
 ./manta ../mantaflowgit/scenes/flof.py flof.py mode 3 showgui 1 twoway 1 alpha 50 writepngs 1 
@@ -51,6 +51,6 @@ To generate triangle meshes that could, e.g., be displayed and rendered in blend
 This completes a full simple example. Let me know how it works for you! If you have comments / questions, just send a mail to "nils at thuerey dot de". 
 
 
-This work was funded by the ERC Starting Grant realFlow.
+This work was funded by the ERC Starting Grant realFlow (ERC StG-2015-637014).
 
 
