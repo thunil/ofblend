@@ -20,6 +20,10 @@ The two commands will generate a lower resolution 4D SDF ("out_r040_x000.uni" an
 ./manta ../mantaflowgit/scenes/dataGen2Drop.py px 1 save4d 1 savehi 1 
 ```
 
+This is what the two first timesteps of each data set should look like in the UI:
+
+![data1](https://github.com/thunil/ofblend/raw/master/resources/screens/ofblend_02a.png "Data 1")![data2](https://github.com/thunil/ofblend/raw/master/resources/screens/ofblend_02b.png "Data 2")
+
 
 ## Calculate a first FlOF deformation:
 The FlOF.py script includes all that is necessary to compute a space-time deformation with optical flow. It also has hard coded settings to load the data generated in the previous step. The two data points (0 and 1) will be used as end-points for the calculations in the following.
@@ -56,7 +60,10 @@ Now we have all components ready to generate a real output: the high-res input d
 ./manta ../mantaflowgit/scenes/flof.py flof.py mode 3 showgui 1 twoway 1 alpha 50 writepngs 1 
 ```
 
-To generate triangle meshes that could, e.g., be displayed and rendered in blender, add "trimesh 1".
+To generate triangle meshes that could, e.g., be displayed and rendered in blender, add "trimesh 1". Here you can see two example frames of the 50% version in the mantaflow UI:
+
+![data1](https://github.com/thunil/ofblend/raw/master/resources/screens/ofblend_03a.png "Data 1")![data2](https://github.com/thunil/ofblend/raw/master/resources/screens/ofblend_03b.png "Data 2")
+
 
 This completes a full simple example. Let me know how it works for you! If you have comments / questions, just send a mail to "nils at thuerey dot de". 
 
