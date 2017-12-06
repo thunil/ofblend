@@ -57,7 +57,7 @@ To run the full pipeline as described in the paper, you also need a deformation 
 
 Now we have all components ready to generate a real output: the high-res input data, and the deformations in both directions. The following command will apply them with 50% strength, and save a sequence of png images. You can see a preview on the right (the lower two images). 
 ```
-./manta ../mantaflowgit/scenes/flof.py flof.py mode 3 showgui 1 twoway 1 alpha 50 writepngs 1 
+./manta ../mantaflowgit/scenes/flof.py mode 3 showgui 1 twoway 1 alpha 50 writepngs 1 
 ```
 
 To generate triangle meshes that could, e.g., be displayed and rendered in blender, add "trimesh 1". Here you can see two example frames of the 50% version in the mantaflow UI:
